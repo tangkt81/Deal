@@ -3,4 +3,6 @@
     <string name="logo">Logo</string>
     <string name="jobseeker">JobSeeker</string>
     <string name="employer">Employer</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="title_activity_jobseeker_maps">Jobseeker Maps</string>
 </resources>
