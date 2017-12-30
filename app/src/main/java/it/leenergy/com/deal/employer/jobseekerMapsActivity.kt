@@ -33,6 +33,7 @@ import com.google.android.gms.tasks.OnSuccessListener
 import it.leenergy.com.deal.R
 import it.leenergy.com.deal.`object`.LatLngJobSeeker
 import java.util.*
+import kotlin.collections.ArrayList
 
 class jobseekerMapsActivity : AppCompatActivity(),
         OnMapReadyCallback,GoogleApiClient.ConnectionCallbacks,
@@ -40,7 +41,7 @@ class jobseekerMapsActivity : AppCompatActivity(),
         com.google.android.gms.location.LocationListener{
 
     private val TAG = "jobseekerMapActivity"
-    private lateinit var latlngJobSeekerList : ArrayList<LatLngJobSeeker>
+    private var latlngJobSeekerList = ArrayList<LatLngJobSeeker>()
     private lateinit var latlngJobSeeker : LatLngJobSeeker
     private lateinit var mMap: GoogleMap
     private lateinit var mGoogleApiClient: GoogleApiClient
@@ -72,13 +73,15 @@ class jobseekerMapsActivity : AppCompatActivity(),
 
         mapFragment.getMapAsync(this)
 
-        val myTimer = Timer()
-        myTimer.schedule(object : TimerTask() {
-            override fun run() {
+//        val myTimer = Timer()
+//        myTimer.schedule(object : TimerTask() {
+//            override fun run() {
+//
+//                getJobSeekerLocation();
+//            }
+//        }, 10000)
 
-                getJobSeekerLocation();
-            }
-        }, 10000)
+
     }
 
     /**
@@ -94,9 +97,9 @@ class jobseekerMapsActivity : AppCompatActivity(),
         mMap = googleMap
 
         // Add a marker in Sydney and move the camera
-        val sydney = LatLng(-34.0, 151.0)
-        mMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
+//        val sydney = LatLng(-34.0, 151.0)
+//        mMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
+//        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
 
     }
 
@@ -170,6 +173,7 @@ class jobseekerMapsActivity : AppCompatActivity(),
             mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15f))
             //mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15f))
             //mMap.moveCamera(CameraUpdateFactory.zoomTo(15f))
+            getJobSeekerLocation()
             showMap = false;
         }
         //Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
@@ -242,32 +246,18 @@ class jobseekerMapsActivity : AppCompatActivity(),
     }
 
     private fun getJobSeekerLocation() {
-        if (latlngJobSeekerList.size != 0)
-            latlngJobSeekerList.clear()
 
-        latlngJobSeeker.latitude = 4.888
-        latlngJobSeeker.longitude = 114.489
-        latlngJobSeeker.jobseeker_id = "1"
-        latlngJobSeeker.nickname = "Tai"
-
+        latlngJobSeekerList.clear()
+        latlngJobSeeker = LatLngJobSeeker(4.844, 114.876, "1", "tai")
         latlngJobSeekerList.add(latlngJobSeeker)
-
-        latlngJobSeeker.latitude = 7.888
-        latlngJobSeeker.longitude = 113.489
-        latlngJobSeeker.jobseeker_id = "2"
-        latlngJobSeeker.nickname = "john"
-
+        latlngJobSeeker = LatLngJobSeeker(4.843, 114.875, "2", "kiu")
         latlngJobSeekerList.add(latlngJobSeeker)
-
-        latlngJobSeeker.latitude = 5.888
-        latlngJobSeeker.longitude = 114.889
-        latlngJobSeeker.jobseeker_id = "3"
-        latlngJobSeeker.nickname = "kiu"
-
+        latlngJobSeeker = LatLngJobSeeker(4.844, 114.877, "3", "wong")
         latlngJobSeekerList.add(latlngJobSeeker)
 
         for (item in latlngJobSeekerList){
-            mMap.addMarker(MarkerOptions().position(LatLng(item.latitude!!, item.longitude!!)).icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_person_pin_circle_light_green_900_24dp)))
+            mMap.addMarker(MarkerOptions().position(LatLng(item.latitude, item.longitude)).icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_person_pin_circle_light_green_900_48dp)))
+            //Log.i(TAG, "item ${item.latitude}");
         }
     }
 }
