@@ -1,5 +1,6 @@
 package it.leenergy.com.deal
-import it.leenergy.com.deal.`employer`.jobseekerMapsActivity
+import it.leenergy.com.deal.`employer`.*
+import it.leenergy.com.deal.`jobseeker`.*
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -13,7 +14,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         btnJobseeker.setOnClickListener(View.OnClickListener {
-            val intent = Intent(this, MapsActivity::class.java)
+            val intent = Intent(this, JSRegActivity::class.java)
             startActivity(intent)
         })
 

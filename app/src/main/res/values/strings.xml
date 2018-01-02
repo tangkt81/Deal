@@ -5,4 +5,10 @@
     <string name="employer">Employer</string>
     <string name="title_activity_maps">Map</string>
     <string name="title_activity_jobseeker_maps">Jobseeker Maps</string>
+    <string name="registration">Registration</string>
+    <string name="id_number">ID Number</string>
+    <string name="mobile_number">Mobile Number</string>
+    <string name="password">Password</string>
+    <string name="info">Info</string>
+    <string name="confirm_password">Confirm Password</string>
 </resources>
