@@ -11,4 +11,13 @@
     <string name="password">Password</string>
     <string name="info">Info</string>
     <string name="confirm_password">Confirm Password</string>
+    <string name="submit">Submit</string>
+    <string name="cancel">Cancel</string>
+    <string name="terms_condition"><u>Terms &amp; Condition</u></string>
+    <string name="i_agree_with_the">I agree with the</string>
+    <string name="err_id_number">Please enter your ID Number.</string>
+    <string name="err_mobile_number">Please enter your Mobile Number.</string>
+    <string name="err_password">Please enter your Password.</string>
+    <string name="err_confirm_password">Please enter your Confirm Password.</string>
+    <string name="err_agree">Please indicate that you have read and agreed to the Terms and Conditions.</string>
 </resources>
