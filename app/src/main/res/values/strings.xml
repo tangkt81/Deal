@@ -20,4 +20,11 @@
     <string name="err_password">Please enter your Password.</string>
     <string name="err_confirm_password">Please enter your Confirm Password.</string>
     <string name="err_agree">Please indicate that you have read and agreed to the Terms and Conditions.</string>
+    <string name="id_number_info">ID Number:\n Must enter your valid ID Number.</string>
+    <string name="mobile_number_info">Mobile Number:\n Must enter your valid Mobile Number.</string>
+    <string name="password_info">Password:\n
+                                    - Must be different from your ID Number.\n
+                                    - Must contain letters and number (special characters optional).\n
+                                    - Length between 6 to 15 characters</string>
+    <string name="confirm_password_info">Confirm Password:\nMust be the same password you entered earlier.</string>
 </resources>

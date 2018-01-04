@@ -115,6 +115,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="10dp"
                                 android:contentDescription="@string/info"
+                                android:onClick="IDNumberInfoOnClick"
                                 android:src="@drawable/ic_info_grey_900_24dp" />
                         </RelativeLayout>
 
@@ -184,6 +185,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="10dp"
                                 android:contentDescription="@string/info"
+                                android:onClick="MobileNoInfoOnClick"
                                 android:src="@drawable/ic_info_grey_900_24dp" />
                         </RelativeLayout>
                     </LinearLayout>
@@ -251,6 +253,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="10dp"
                                 android:contentDescription="@string/info"
+                                android:onClick="PasswordInfoOnClick"
                                 android:src="@drawable/ic_info_grey_900_24dp" />
                         </RelativeLayout>
                     </LinearLayout>
@@ -318,6 +321,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="10dp"
                                 android:contentDescription="@string/info"
+                                android:onClick="ConfirmPasswordInfoOnClick"
                                 android:src="@drawable/ic_info_grey_900_24dp" />
                         </RelativeLayout>
                     </LinearLayout>
