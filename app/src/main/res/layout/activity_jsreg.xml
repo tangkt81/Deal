@@ -6,7 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    tools:context="it.leenergy.com.deal.jobseeker.JSRegActivity">
+    tools:context="it.leenergy.com.deal.jobseeker.registration.JSRegActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -134,6 +134,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@drawable/border"
+                            android:fontFamily="@font/assistant"
                             android:padding="10dp"
                             android:text="@string/err_id_number"
                             android:textColor="@color/colorPrimary" />
@@ -147,19 +148,43 @@
                         android:baselineAligned="false"
                         android:gravity="center"
                         android:orientation="horizontal">
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="3">
+
+                            <android.support.design.widget.TextInputLayout
+                                android:id="@+id/tilCountryCode"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="0dp"
+                                android:layout_marginStart="8dp"
+                                android:layout_marginTop="10dp">
+
+                                <android.support.design.widget.TextInputEditText
+                                    android:id="@+id/txtCountryCode"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/assistant"
+                                    android:hint="@string/country_code"
+
+                                    />
+                            </android.support.design.widget.TextInputLayout>
+                        </RelativeLayout>
 
                         <RelativeLayout
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:layout_weight="9">
+                            android:layout_weight="6">
 
                             <android.support.design.widget.TextInputLayout
                                 android:id="@+id/tilMobileNo"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginEnd="8dp"
-                                android:layout_marginStart="8dp"
+                                android:layout_marginStart="0dp"
                                 android:layout_marginTop="10dp">
 
                                 <android.support.design.widget.TextInputEditText
@@ -168,7 +193,7 @@
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/assistant"
                                     android:hint="@string/mobile_number"
-                                    android:inputType="phone"
+                                    android:inputType="number"
                                     android:maxLength="7" />
                             </android.support.design.widget.TextInputLayout>
                         </RelativeLayout>
@@ -203,6 +228,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@drawable/border"
+                            android:fontFamily="@font/assistant"
                             android:padding="10dp"
                             android:text="@string/err_mobile_number"
                             android:textColor="@color/colorPrimary" />
@@ -271,6 +297,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@drawable/border"
+                            android:fontFamily="@font/assistant"
                             android:padding="10dp"
                             android:text="@string/err_password"
                             android:textColor="@color/colorPrimary" />
@@ -339,6 +366,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@drawable/border"
+                            android:fontFamily="@font/assistant"
                             android:padding="10dp"
                             android:text="@string/err_confirm_password"
                             android:textColor="@color/colorPrimary" />
@@ -389,6 +417,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@drawable/border"
+                            android:fontFamily="@font/assistant"
                             android:padding="10dp"
                             android:text="@string/err_agree"
                             android:textColor="@color/colorPrimary" />
@@ -409,7 +438,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_weight="2"
-                            android:paddingEnd="2dp"
+                            android:paddingEnd="5dp"
                             android:paddingStart="10dp">
 
                             <Button

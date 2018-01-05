@@ -1,6 +1,6 @@
 package it.leenergy.com.deal
 import it.leenergy.com.deal.`employer`.*
-import it.leenergy.com.deal.`jobseeker`.*
+import it.leenergy.com.deal.jobseeker.registration.*
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle

@@ -27,4 +27,12 @@
                                     - Must contain letters and number (special characters optional).\n
                                     - Length between 6 to 15 characters</string>
     <string name="confirm_password_info">Confirm Password:\nMust be the same password you entered earlier.</string>
+    <string name="code_prompt">Country Code</string>
+    <string name="country_code">Country Code</string>
+    <string name="tooltips_default">Tooltip using PopupWindow :)</string>
+    <string name="nav_up">nav_up</string>
+    <string name="sms_verification">SMS Verification</string>
+    <string name="sms_verify_content_1">You will receive a verification code via SMS shortly</string>
+    <string name="sms_verify_content_2">Please enter your \nverification code</string>
+
 </resources>

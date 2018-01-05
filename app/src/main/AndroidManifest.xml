@@ -9,6 +9,7 @@
     -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
     <application
         android:allowBackup="false"
@@ -46,8 +47,10 @@
         <activity
             android:name=".employer.jobseekerMapsActivity"
             android:label="@string/title_activity_jobseeker_maps" />
-        <activity android:name=".jobseeker.JSRegActivity"
-            android:windowSoftInputMode="stateHidden"></activity>
+        <activity
+            android:name=".jobseeker.registration.JSRegActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity android:name=".jobseeker.registration.JSSMSVerifyActivity"></activity>
     </application>
 
 </manifest>
