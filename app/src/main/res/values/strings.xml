@@ -34,5 +34,8 @@
     <string name="sms_verification">SMS Verification</string>
     <string name="sms_verify_content_1">You will receive a verification code via SMS shortly</string>
     <string name="sms_verify_content_2">Please enter your \nverification code</string>
+    <string name="resend">Resend</string>
+    <string name="didn_t_receive_the_code">Didn\'t receive the code?</string>
+    <string name="verify">Verify</string>
 
 </resources>
