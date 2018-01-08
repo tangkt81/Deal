@@ -7,6 +7,7 @@
          Google Maps Android API v2, but you must specify either coarse or fine
          location permissions for the 'MyLocation' functionality.
     -->
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
@@ -17,6 +18,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/logo_jcb"
         android:supportsRtl="true"
+        android:name=".classess.App"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -47,10 +49,11 @@
         <activity
             android:name=".employer.jobseekerMapsActivity"
             android:label="@string/title_activity_jobseeker_maps" />
-        <activity
-            android:name=".jobseeker.registration.JSRegActivity"
+
+        <activity android:name=".registration.SMSVerifyActivity"
             android:windowSoftInputMode="stateHidden" />
-        <activity android:name=".jobseeker.registration.JSSMSVerifyActivity"></activity>
+        <activity android:name=".registration.RegistrationActivity"
+            android:windowSoftInputMode="stateHidden" />
     </application>
 
 </manifest>

@@ -1,4 +1,4 @@
-package it.leenergy.com.deal.`object`
+package it.leenergy.com.deal.classess
 
 /**
  * Created by IT-LeEnergy on 29/12/2017.

@@ -31,8 +31,7 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.gms.tasks.OnSuccessListener
 import it.leenergy.com.deal.R
-import it.leenergy.com.deal.`object`.LatLngJobSeeker
-import java.util.*
+import it.leenergy.com.deal.classess.LatLngJobSeeker
 import kotlin.collections.ArrayList
 
 class jobseekerMapsActivity : AppCompatActivity(),

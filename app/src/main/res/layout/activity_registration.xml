@@ -6,7 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    tools:context="it.leenergy.com.deal.jobseeker.registration.JSRegActivity">
+    tools:context="it.leenergy.com.deal.registration.RegistrationActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -47,7 +47,7 @@
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardBackgroundColor="@color/colorBackgroundWhite"
+                app:cardBackgroundColor="@color/colorWhite"
                 android:layout_margin="15dp">
 
                 <LinearLayout

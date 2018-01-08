@@ -1,18 +1,15 @@
-package it.leenergy.com.deal.`object`
+package it.leenergy.com.deal.classess
 
 import android.app.ActionBar
 import android.content.Context
 import android.graphics.Rect
 import android.graphics.drawable.BitmapDrawable
-import android.os.Message
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.PopupWindow
 import it.leenergy.com.deal.R
 import kotlinx.android.synthetic.main.tooltips_layout.view.*
-import java.util.logging.Handler
-import java.util.logging.LogRecord
 
 /**
  * Created by IT-LeEnergy on 04/01/2018.

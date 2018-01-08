@@ -1,31 +1,44 @@
-package it.leenergy.com.deal.jobseeker.registration
+package it.leenergy.com.deal.registration
 
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import it.leenergy.com.deal.R
-import it.leenergy.com.deal.`object`.ToolTips
-import kotlinx.android.synthetic.main.activity_jsreg.*
-import it.leenergy.com.deal.`pbfunction`.*
-import it.leenergy.com.deal.util.PhoneUtil
+import it.leenergy.com.deal.classess.ToolTips
+import it.leenergy.com.deal.pbfunction.checkConfirmPassword
+import it.leenergy.com.deal.pbfunction.checkPasswordAndIDNumber
+import it.leenergy.com.deal.pbfunction.checkPasswordPattern
+import it.leenergy.com.deal.`object`.GetPhoneCode
+import it.leenergy.com.deal.`object`.AuthService
+import kotlinx.android.synthetic.main.activity_registration.*
 
-class JSRegActivity : AppCompatActivity() {
+class RegistrationActivity : AppCompatActivity() {
 
     lateinit var toolTips : ToolTips
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_jsreg)
+        setContentView(R.layout.activity_registration)
         invisibleOfAllErrMessage()
         toolTips = ToolTips(this)
 
-        txtCountryCode.setText(PhoneUtil.getCountryCode(this))
+        txtCountryCode.setText(GetPhoneCode.getCountryCode(this))
         btnSubmit.setOnClickListener{
             invisibleOfAllErrMessage()
             if (!checkTextField()){
-                val intent = Intent(this, JSSMSVerifyActivity::class.java)
-                startActivity(intent)
+                val users_id_number = txtIDNumber.text.trim().toString()
+                val users_mobile_number = txtMobile.text.trim().toString()
+                val users_password = txtPassword.text.trim().toString()
+                AuthService.UsersRegister(users_id_number, users_mobile_number, users_password) { registerSuccess ->
+                    if (registerSuccess) {
+                        val intent = Intent(this, SMSVerifyActivity::class.java)
+                        startActivity(intent)
+                        finish()
+                    }
+                }
+//                val intent = Intent(this, JSSMSVerifyActivity::class.java)
+//                startActivity(intent)
 //                println("Password & ID Number ${checkPasswordAndIDNumber(txtIDNumber.text.trim().toString(), txtPassword.text.trim().toString())}")
 //                println("Password ${checkPasswordPattern(txtPassword.text.trim().toString())}")
 //                println("Confirm ${checkConfirmPassword(txtPassword.text.trim().toString(), txtConfirmPassword.text.trim().toString())}")
@@ -98,7 +111,7 @@ class JSRegActivity : AppCompatActivity() {
             error = true
         }
         if (!checkPasswordPattern(txtPassword.text.trim().toString())
-                    || !checkPasswordAndIDNumber(txtIDNumber.text.trim().toString(), txtPassword.text.trim().toString())) {
+                || !checkPasswordAndIDNumber(txtIDNumber.text.trim().toString(), txtPassword.text.trim().toString())) {
             tvErrPassword.visibility = View.VISIBLE
             tvErrPassword.text = getText(R.string.password_info).toString()
             error = true

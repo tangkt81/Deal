@@ -1,4 +1,4 @@
-package it.leenergy.com.deal.util
+package it.leenergy.com.deal.`object`
 
 import android.content.Context
 import android.telephony.TelephonyManager
@@ -8,7 +8,7 @@ import android.telephony.TelephonyManager
 /**
  * Created by IT-LeEnergy on 05/01/2018.
  */
-object PhoneUtil {
+object GetPhoneCode {
     fun getCountryCode(context: Context): String? {
         val manager = context.getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager
         return if (manager != null) {

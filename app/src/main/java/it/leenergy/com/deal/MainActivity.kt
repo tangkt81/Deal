@@ -1,10 +1,10 @@
 package it.leenergy.com.deal
 import it.leenergy.com.deal.`employer`.*
-import it.leenergy.com.deal.jobseeker.registration.*
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import it.leenergy.com.deal.registration.RegistrationActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         btnJobseeker.setOnClickListener(View.OnClickListener {
-            val intent = Intent(this, JSRegActivity::class.java)
+            val intent = Intent(this, RegistrationActivity::class.java)
             startActivity(intent)
         })
 
