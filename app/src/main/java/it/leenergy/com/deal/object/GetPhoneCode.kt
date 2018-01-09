@@ -9,6 +9,7 @@ import android.telephony.TelephonyManager
  * Created by IT-LeEnergy on 05/01/2018.
  */
 object GetPhoneCode {
+
     fun getCountryCode(context: Context): String? {
         val manager = context.getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager
         return if (manager != null) {

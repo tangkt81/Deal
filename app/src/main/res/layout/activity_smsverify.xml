@@ -104,7 +104,7 @@
                         android:ems="10"
                         android:fontFamily="@font/assistant"
                         android:inputType="number"
-                        android:maxLength="4"
+                        android:maxLength="6"
                         android:textAlignment="center"
                         android:textSize="30sp"
                         tools:ignore="LabelFor" />
@@ -134,8 +134,9 @@
                                 android:layout_height="wrap_content"
                                 android:background="@drawable/cancel_button"
                                 android:fontFamily="@font/assistant"
-                                android:textColor="@color/colorDark"
-                                android:text="@string/cancel" />
+                                android:onClick="CancelClick"
+                                android:text="@string/cancel"
+                                android:textColor="@color/colorDark" />
                         </RelativeLayout>
 
                         <RelativeLayout
@@ -153,6 +154,7 @@
                                 android:layout_height="wrap_content"
                                 android:background="@drawable/submit_button"
                                 android:fontFamily="@font/assistant"
+                                android:onClick="VerifyClick"
                                 android:text="@string/verify"
                                 android:textColor="@android:color/white" />
                         </RelativeLayout>
@@ -168,16 +170,60 @@
                         android:textColor="@color/colorPrimary"
                         android:textSize="18sp" />
 
-                    <Button
-                        android:id="@+id/btnResend"
-                        android:layout_marginBottom="20dp"
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:background="@drawable/resend_button"
-                        android:fontFamily="@font/assistant"
-                        android:text="@string/resend"
-                        android:textColor="@color/colorWhite" />
+                        android:orientation="vertical"
+                        >
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:paddingEnd="10dp"
+                            android:paddingStart="2dp"
+                            tools:ignore="RtlHardcoded,UselessParent">
+
+                            <Button
+                                android:id="@+id/btnResend"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginBottom="20dp"
+                                android:background="@drawable/resend_button"
+                                android:fontFamily="@font/assistant"
+                                android:onClick="ReSendClick"
+                                android:text="@string/resend"
+                                android:textColor="@color/colorWhite" />
+
+                            <ProgressBar
+                                android:id="@+id/pbReSend"
+                                style="?android:attr/progressBarStyleHorizontal"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:layout_centerHorizontal="true"
+                                android:layout_centerInParent="true"
+                                android:layout_gravity="center"
+                                android:indeterminate="false"
+                                android:layoutDirection="rtl"
+                                android:max="60"
+                                android:progress="60"
+                                android:progressDrawable="@drawable/circle" />
+
+                            <TextView
+                                android:id="@+id/tvCoutdown"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_centerInParent="true"
+                                android:fontFamily="@font/assistant"
+                                android:text="@string/count_down" />
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+
 
                 </LinearLayout>
             </android.support.v7.widget.CardView>

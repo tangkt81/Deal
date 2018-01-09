@@ -37,5 +37,6 @@
     <string name="resend">Resend</string>
     <string name="didn_t_receive_the_code">Didn\'t receive the code?</string>
     <string name="verify">Verify</string>
+    <string name="count_down">00</string>
 
 </resources>

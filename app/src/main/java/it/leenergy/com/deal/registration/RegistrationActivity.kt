@@ -37,13 +37,9 @@ class RegistrationActivity : AppCompatActivity() {
                         finish()
                     }
                 }
-//                val intent = Intent(this, JSSMSVerifyActivity::class.java)
-//                startActivity(intent)
-//                println("Password & ID Number ${checkPasswordAndIDNumber(txtIDNumber.text.trim().toString(), txtPassword.text.trim().toString())}")
-//                println("Password ${checkPasswordPattern(txtPassword.text.trim().toString())}")
-//                println("Confirm ${checkConfirmPassword(txtPassword.text.trim().toString(), txtConfirmPassword.text.trim().toString())}")
             }
-
+//            val intent = Intent(this, SMSVerifyActivity::class.java)
+//            startActivity(intent)
         }
 
     }

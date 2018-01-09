@@ -23,13 +23,17 @@ object AuthService {
                 Response.Listener<String> { response ->
                     try {
                         val obj = JSONObject(response)
-                        App.prefs.users_id_number = obj.getString("users_id_number")
-                        App.prefs.users_mobile_number = obj.getString("users_mobile_number")
-                        App.prefs.users_api_key = obj.getString("users_api_key")
-
-                        complete(true)
+                        if (!obj.getBoolean("error")) {
+                            App.prefs.users_id_number = obj.getString("users_id_number")
+                            App.prefs.users_mobile_number = obj.getString("users_mobile_number")
+                            App.prefs.users_api_key = obj.getString("users_api_key")
+                            complete(true)
+                        } else {
+                            println(obj.getString("error_msg"))
+                            complete(false)
+                        }
                     } catch (e: JSONException) {
-                        Log.d("JSON", "EXC:" + e.localizedMessage)
+                        Log.d("JSON-REG", "EXC:" + e.localizedMessage)
                         complete(false)
                     }
                 },
@@ -48,41 +52,73 @@ object AuthService {
             }
         }
         App.prefs.requestQueue.add(registerRequest)
+    }
 
-//        val jsonBody = JSONObject()
-//        jsonBody.put("tag", "usersregister")
-//        jsonBody.put("users_id_number", users_id_number)
-//        jsonBody.put("users_mobile_number", users_mobile_number)
-//        jsonBody.put("users_password", users_password)
-//        val requestBody = jsonBody.toString()
-//
-//        val registerRequest = object : StringRequest(Request.Method.POST, REGISTER_API, Response.Listener { response ->
-//
-//            try {
-//                //val obj = JSONObject(response)
-//                Log.d("Response", "EXC:" + response)
-//                //println(obj.getString("users_id_number"))
-////                App.prefs.users_id_number = response.getString("users_id_number")
-////                App.prefs.users_mobile_number = response.getString("users_mobile_number")
-////                App.prefs.users_api_key = response.getString("users_api_key")
-//                //complete(true)
-//            } catch (e: JSONException) {
-//                Log.d("JSON", "EXC:" + e.localizedMessage)
-//                complete(false)
-//            }
-//        }, Response.ErrorListener { error ->
-//            println("Could not register user: $error")
-//            complete(false)
-//        }) {
-//            override fun getBodyContentType(): String {
-//                return "application/json; charset=utf-8"
-//            }
-//
-//            override fun getBody(): ByteArray {
-//                return requestBody.toByteArray()
-//            }
-//        }
-//        App.prefs.requestQueue.add(registerRequest)
+    fun ReSendOTP(users_id_number: String, users_mobile_number: String, users_api_key: String, complete: (Boolean) -> Unit) {
+        val otpRequest = object : StringRequest(Request.Method.POST, REGISTER_API,
+                Response.Listener<String> { response ->
+                    try {
+                        val obj = JSONObject(response)
+                        if (!obj.getBoolean("error")){
+                            complete(true)
+                        } else {
+                            println(obj.getString("error_msg"))
+                            complete(false)
+                        }
+                    } catch (e: JSONException) {
+                        Log.d("JSON-OTP", "EXC:" + e.localizedMessage)
+                        complete(false)
+                    }
+                },
+                Response.ErrorListener { error ->
+                    println("Could not OTP: $error")
+                    complete(false)
+                }) {
+            override fun getParams(): MutableMap<String, String> {
+                val params = HashMap<String, String>()
+                params.put("tag", "resendotp")
+                params.put("users_id_number", users_id_number)
+                params.put("users_mobile_number", users_mobile_number)
+                params.put("users_api_key", users_api_key)
 
+                return params
+            }
+        }
+
+        App.prefs.requestQueue.add(otpRequest)
+    }
+
+    fun VerificationCode (users_id_number: String, users_mobile_number: String, users_api_key: String, smscodes_code: String, complete:(Boolean) -> Unit) {
+        val verificationRequest = object : StringRequest(Request.Method.POST, REGISTER_API,
+                Response.Listener<String> { response ->
+                    try {
+                        val obj = JSONObject(response)
+                        if (!obj.getBoolean("error")){
+                            complete(true)
+                        } else {
+                            println(obj.getString("error_msg"))
+                            complete(false)
+                        }
+                    } catch (e: JSONException) {
+                        Log.d("JSON-OTP", "EXC:" + e.localizedMessage)
+                        complete(false)
+                    }
+                },
+                Response.ErrorListener { error ->
+                    println("Could not OTP: $error")
+                    complete(false)
+                }) {
+            override fun getParams(): MutableMap<String, String> {
+                val params = HashMap<String, String>()
+                params.put("tag", "verifycode")
+                params.put("users_id_number", users_id_number)
+                params.put("users_mobile_number", users_mobile_number)
+                params.put("users_api_key", users_api_key)
+                params.put("smscodes_code", smscodes_code)
+
+                return params
+            }
+        }
+        App.prefs.requestQueue.add(verificationRequest)
     }
 }

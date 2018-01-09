@@ -17,6 +17,7 @@ class SharedPrefs(context: Context) {
     val USERS_MOBILE_NUMBER = "users_mobile_number"
     val USERS_API_KEY = "users_api_key"
 
+
     var is_logged_in : Boolean
         get() = prefs.getBoolean(IS_LOGGED_IN, false)
         set(value) = prefs.edit().putBoolean(IS_LOGGED_IN, value).apply()
@@ -32,6 +33,7 @@ class SharedPrefs(context: Context) {
     var users_api_key : String
         get() = prefs.getString(USERS_API_KEY, "")
         set(value) = prefs.edit().putString(USERS_API_KEY, value).apply()
+
 
     val requestQueue : RequestQueue = Volley.newRequestQueue(context)
 
