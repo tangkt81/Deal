@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import it.leenergy.com.deal.registration.RegistrationActivity
+import it.leenergy.com.deal.myprofile.MainProfileActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -19,7 +20,7 @@ class MainActivity : AppCompatActivity() {
         })
 
         btnEmployer.setOnClickListener(View.OnClickListener {
-            val intent = Intent(this, jobseekerMapsActivity::class.java)
+            val intent = Intent(this, MainProfileActivity::class.java)
             startActivity(intent)
         })
     }
